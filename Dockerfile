@@ -1,10 +1,11 @@
 FROM python:3.6-alpine
 
-WORKDIR /usr/src/app
-COPY ./requirements.txt /requirements.txt
+WORKDIR /app
 
-RUN pip install -r /requirements.txt
+COPY ./requirements.txt /app/requirements.txt
 
-COPY app.py ./
+RUN pip install -r requirements.txt
 
-CMD ./app.py
+COPY *.py ./
+
+CMD /app/app.py
