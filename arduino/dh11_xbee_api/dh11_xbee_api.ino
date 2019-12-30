@@ -12,6 +12,7 @@ Tx16Request tx = Tx16Request(0x5001, payload, sizeof(payload));
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, LOW);
   Serial.begin(9600);
   xbee.setSerial(Serial);
 }
@@ -36,9 +37,8 @@ void loop() {
     payload[3] = h;
   }
   
-  digitalWrite(LED_BUILTIN, HIGH);
+  // digitalWrite(LED_BUILTIN, HIGH);
   xbee.send(tx);
-  delay(100);
-  digitalWrite(LED_BUILTIN, LOW);
+  // digitalWrite(LED_BUILTIN, LOW);
   
 }

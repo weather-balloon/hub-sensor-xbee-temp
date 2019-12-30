@@ -1,4 +1,6 @@
-*.ino
+arduino/
+xbee/
 README.md
 LICENSE
-venv/*
+.git/
+.gitignore

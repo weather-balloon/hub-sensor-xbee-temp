@@ -2,7 +2,7 @@
 #include <SimpleDHT.h>
 
 #define DHTPIN 8
-#define READ_DELAY 5000
+#define READ_DELAY 4900
 
 /*
  * A basic temperature sensor
@@ -25,6 +25,7 @@ void loop() {
   int err;
 
   if ((err = dht11.read(&t, &h, NULL)) != SimpleDHTErrSuccess)  {
+    // Errors will be detectable with a line starting with `e,`
     Serial.print("e,");
     Serial.print(err);
     Serial.print("\n");

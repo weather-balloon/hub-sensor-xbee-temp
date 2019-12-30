@@ -33,25 +33,25 @@ def main():
     def load_remote_device_info():
         xbee_network = device.get_network()
         xbee_network.start_discovery_process()
-        
+
         while xbee_network.is_discovery_running():
             sleep(0.5)
 
         xbee_devices = xbee_network.get_devices()
-        
+
         for remote_device in xbee_devices:
             try:
                 remote_device.read_device_info()
             except:
                 continue
-            
+
             xbee_remote_devices[str(remote_device.get_16bit_addr())] = {
                 "node_id": remote_device.get_node_id()
             }
 
 
     def data_receive_callback(xbee_message):
-        
+
         time_zone = datetime.now(timezone.utc).astimezone().tzinfo
         timestamp = datetime.fromtimestamp(xbee_message.timestamp, tz=time_zone).isoformat()
 
@@ -73,7 +73,7 @@ def main():
                 "message": DHT_ERROR_CODES[xbee_message.data[1]]
             }
         else:
-            data["observations"] = { 
+            data["observations"] = {
                 "temperature": xbee_message.data[2],
                 "humidity": xbee_message.data[3]
             }
