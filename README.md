@@ -1,6 +1,6 @@
-# hub-sensor-xbee-temp
+# XBee-based temperature sensor
 
-Collects weather observations from an XBee device - in this case, hosted on an Arduino.
+Collects temperature/humidity observations via an XBee device - in this case, hosted on an Arduino.
 
 ## Preparing the Arduino
 
@@ -24,8 +24,9 @@ Pins:
 - 2 - Data out
 - 4 - Ground
 
-I've included a [Fritzing](https://fritzing.org/home/) diagram
-for the basic circuit.
+I've included a [Fritzing](https://fritzing.org/home/) diagram [for the basic circuit](circuit.fzz).
+
+![Basic circuit diagram](circuit.png)
 
 ### Test the sensor
 
